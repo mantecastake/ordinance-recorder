@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "SUPABASE_ACCESS_TOKEN=$SUPABASE_SERVICE_ROLE_KEY supabase db push"
+    "migrate": "SUPABASE_ACCESS_TOKEN=$SUPABASE_SERVICE_ROLE_KEY supabase db push --project-ref \"yhacgmzfragllprsbwgc\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
