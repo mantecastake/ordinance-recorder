@@ -5,7 +5,12 @@ import { supabase } from "@/utils/supabase"
 export async function submitOrdinance(formData: FormData) {
   const ward = formData.get("ward") as string
   const ordinances = Number.parseInt(formData.get("ordinances") as string)
-  const { data, error1 } = await supabase.from("ward_ordinances").select("id").eq("ward", ward).single()
+  const { data } = await supabase.from("ward_ordinances").select("id").eq("ward", ward).single()
+
+  if(data == null) {
+    console.error("data returned is null!")
+    return { success: false, message: "Failed to get ward ordinance data" }
+  }
 
   const { error } = await supabase.from("ordinance_history").insert({ ward_id: data.id, quantity: ordinances })
 
