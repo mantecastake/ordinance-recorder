@@ -54,8 +54,9 @@ export function OrdinanceForm() {
   }, [selectedWard])
 
   async function handleSubmit(event) {
-    event.preventDefault() // Prevents page refresh
+    // event.preventDefault() // Prevents page refresh
     const formData = new FormData(event.target)
+    console.log(formData)
     const result = await submitOrdinance(formData)
     setMessage(result.message)
   }
